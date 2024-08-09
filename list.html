@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Pessoal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://acdn.mitiendanube.com/stores/956/391/products/astronauta-21-376086692721cde39116557609650970-1024-1024.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 20px;
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            color: #333;
+            margin-top: 20px;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .about-me {
+            margin-top: 40px;
+        }
+
+        .about-me h2, .contact h2 {
+            margin-bottom: 15px;
+        }
+
+        .social-icons a {
+            margin-right: 10px;
+            color: #007bff;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #0056b3;
+        }
+
+        .dark-mode-toggle {
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: #ccc;
+        }
+
+        .dark-mode .container {
+            background-color: rgba(50, 50, 50, 0.9);
+            color: #ccc;
+        }
+
+        .dark-mode header {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .dark-mode .social-icons a {
+            color: #1da1f2;
+        }
+
+        #new-task {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #add-task-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+
+        #add-task-button:hover {
+            background-color: #218838;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .task-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            transition: background-color 0.3s;
+        }
+
+        .task-item:hover {
+            background-color: #f1f1f1;
+        }
+
+        .task-item span::before {
+            content: "➜ ";
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .task-item:last-child {
+            border-bottom: none;
+        }
+
+        .remove-button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #dc3545;
+            color: white;
+            cursor: pointer;
+        }
+
+        .remove-button:hover {
+            background-color: #c82333;
+        }
+
+        .meteoro {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #001f3f;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            transition: transform 0.3s ease;
+        }
+
+        .meteoro:active {
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Site de Henrique Cintra</h1>
+        <nav>
+            <ul>
+                <li><a href="#about-me">Sobre Mim</a></li>
+                <li><a href="#quicklist">Certificados</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" id="about-me">
+        <h2>Sobre Mim</h2>
+        <p>Estudo Engenharia da Computação, e aprofundo meus conhecimentos fazendo projetos e participando de eventos científicos.</p>
+    </div>
+
+    <div class="container" id="quicklist">
+        <h2><i class="fas fa-list"></i> Lista de Contatos</h2>
+        <input type="text" id="new-task" placeholder="Adicione um novo item">
+        <button id="add-task-button">Adicionar item</button>
+        <ul id="task-list"></ul>
+    </div>
+
+    <div class="container contact" id="contact">
+        <h2>Contato</h2>
+        <p>Minhas Redes:</p>
+        <div class="social-icons">
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+
+    <div class="meteoro" id="meteoro">0</div>
+
+    <button class="dark-mode-toggle">Modo Escuro</button>
+
+    <script>
+        let taskCounter = 0;
+
+        document.getElementById('add-task-button').addEventListener('click', function() {
+            const taskInput = document.getElementById('new-task');
+            const taskText = taskInput.value.trim();
+
+            if (taskText !== "") {
+                const taskList = document.getElementById('task-list');
+
+                const taskItem = document.createElement('li');
+                taskItem.className = 'task-item';
+
+                const taskContent = document.createElement('span');
+                taskContent.textContent = taskText;
+
+                const removeButton = document.createElement('button');
+                removeButton.className = 'remove-button';
+                removeButton.textContent = '🗑️';
+                removeButton.addEventListener('click', function() {
+                    taskList.removeChild(taskItem);
+                    taskCounter--;
+                    document.getElementById('meteoro').textContent = taskCounter;
+                });
+
+                taskItem.appendChild(taskContent);
+                taskItem.appendChild(removeButton);
+
+                taskList.appendChild(taskItem);
+
+                taskInput.value = "";
+                taskInput.focus();
+
+                taskCounter++;
+                document.getElementById('meteoro').textContent = taskCounter;
+            }
+        });
+
+        const toggleButton = document.querySelector('.dark-mode-toggle');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+</html>
